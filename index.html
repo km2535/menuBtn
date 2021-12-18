@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <!-- 아이콘을 만들어 낼 공간을 만듦 -->
+    <div class="navigation">
+        <!-- 아이콘들은 ul로 순서대로 정렬함(번호는 없음) -->
+        <ul>
+            <!-- 첫 번째 순서 -->
+            <li class="list active">
+                <!-- a태그로 경로를 지정할 수 있게함.  -->
+                <a href="#">
+                    <!-- a태그 안에 span으로 아이콘과 text의 span을 만듦 -->
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <!-- text의 span -->
+                <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                <span class="text">Message</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                <span class="text">Photos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                <span class="text">Setting</span>
+                </a>
+            </li>
+            <!-- 아래가 움직이는 원이 됨 -->
+            <div class="indicator"></div>
+        </ul> 
+    </div>
+    <!-- 외부 CDN을 가져옴 -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* 기본설정을 위한 전체 적용 CSS임 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* 자주쓰는 색상을 편리하게 사용하기위해 --clr라는 변수명에 색상을 저장함 */
+:root {
+  --clr: #222327;
+}
+
+body {
+  /* body로 들어오는 자식태그들은 flex로 설정함 */
+  display: flex;
+  /* 바디안의 내용을 가운데 정렬시킴 */
+  justify-content: center;
+  align-items: center;
+  /* 내용의 위치를 뷰포트의 100%로 최소 높이를 지정함. */
+  min-height: 100vh;
+  /* body의 배경을 var로 변수로 저장한 색상으로 지정 */
+  background: var(--clr);
+}
+/* navigation 클래스 명의 div임 */
+.navigation {
+  /* 전체 너비를 지정함 */
+  width: 400px;
+  /* div의 전체 높이를 지정함 */
+  height: 70px;
+  /* div의 배경을 지정함 */
+  background: #fff;
+  /* div태그를 flex로 지정함 */
+  display: flex;
+  /* div를 가운데 정렬하고 */
+  justify-content: center;
+  align-items: center;
+  /* 테두리를 둥글게 함 */
+  border-radius: 10px;
+}
+
+.navigation ul {
+  /* ul태그를 flex로 만들어 li들을 flex정렬하게 됨*/
+  display: flex;
+  /* ul태그의 내용의 너비를 350px로 지정함 */
+  width: 350px;
+}
+.navigation ul li {
+  /* ul태그의 위치를 기준으로 위치를 지정함. */
+  position: relative;
+  /* li태그로 인해 보였던 점을 없앰 */
+  list-style: none;
+  /* 5개의 아이콘들의 너비는 350px임. 350px을 5로 나눈 값을 넣음 */
+  width: 70px;
+  /* 높이를 지정함 */
+  height: 70px;
+  z-index: 1;
+}
+.navigation ul li a {
+  /* a태그는 li의 위치를 기준으로 설정됨 */
+  position: relative;
+  /* a태그의 내용을 flex 정렬함 */
+  display: flex;
+  /* flex방향을 가로로 지정하여 아이콘과 text가 가로로 배치됨 */
+  flex-direction: column;
+  /* a태그를 중앙 정렬함 */
+  justify-content: center;
+  align-items: center;
+  /* 너비를 100%하여 70px이 되게 함 */
+  width: 100%;
+  /* text를 가운데 정렬시킴 */
+  text-align: center;
+  /* text의 두께를 지정함 */
+  font-weight: 500;
+}
+/* a태그 안의 icon을 설정 */
+.navigation ul li a .icon {
+  /* icon은 a태그를 기준으로 위치를 지정함 */
+  position: relative;
+  /* block으로 display함 */
+  display: block;
+  /* 텍스트와 거리를 벌림 */
+  line-height: 75px;
+  /* 아이콘의 크기 지정 */
+  font-size: 1.5em;
+  /* 아이콘 정렬 */
+  text-align: center;
+  /* 아이콘의 위치 변화 시 변화시간지정 */
+  transition: 0.5s;
+  /* 아이콘의 색상 지정 */
+  color: var(--clr);
+}
+/* li태그의 active가 붙으면 a태그의 icon태그를 다음과 같이 설정함 */
+.navigation ul li.active a .icon {
+  /* Y축으로 -32px만큼 이동함 */
+  transform: translateY(-32px);
+}
+/* a태그의 텍스트를 지정 */
+.navigation ul li a .text {
+  /* 절대값으로 지정 */
+  position: absolute;
+  /* 색상 지정 */
+  color: var(--clr);
+  /* 텍스트 두께 */
+  font-weight: 400;
+  /* 폰트 사이즈 지정 */
+  font-size: 0.75em;
+  /* 문자와 문자사이 거리 지정 */
+  letter-spacing: 0.05em;
+  /* 텍스트가 opacity할때의 시간 */
+  transition: 0.5s;
+  /* 처음에는 안보이게 설정 */
+  opacity: 0;
+  /* Y축으로 20px만큼 이동 */
+  transform: translateY(20px);
+}
+/* li태그에 active가 있으면 a태그의 text를 다음과 같이 지정함 */
+.navigation ul li.active a .text {
+  /* 차지비율을 1배로 지정 나타나는 것처럼 효과를 줄 수 있다.*/
+  opacity: 1;
+  /* Y축을 10px만큼 이동 */
+  transform: translateY(10px);
+}
+/* 원형을 만듦 */
+.indicator {
+  /* 위치는 절대값 */
+  position: absolute;
+  /* 위치를 지정 */
+  top: 40%;
+  /* 너비와 높이를 지정 */
+  width: 70px;
+  height: 70px;
+  /* 색상 지정 */
+  background: #29fd53;
+  /* 원형으로 만든다.ㅣ */
+  border-radius: 50%;
+  /* 두께를 6px 만큼 주고 색상을 배경과 같이 하여 마치 원이 공중에 떠있는 느낌을 준다. */
+  border: 6px solid var(--clr);
+  /* 변화시간 설정 */
+  transition: 0.5s;
+}
+/* 원의 양옆을 content를 설정하여 날카롭게 생긴 면을 깍는다. */
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 52%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 25px;
+  box-shadow: 1px -8px var(--clr);
+}
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 25px;
+  box-shadow: -1px -7px var(--clr);
+}
+
+/* 아래와 같이 설정하여 초록색 원을 원하는 만큼 이동 시킨다.  */
+
+/* 첫번째 li태그에 active가 있으면 indicator의 값을 다음과 같이 설정함 */
+.navigation ul li:nth-child(1).active ~ .indicator {
+  /* X축으로 calc의 값만큼 이동함 */
+  transform: translateX(calc(70px * 0));
+}
+/* 두번째 li태그에 active가 있으면 indicator의 값을 다음과 같이 설정함 */
+.navigation ul li:nth-child(2).active ~ .indicator {
+  /* X축으로 calc의 값만큼 이동함 */
+  transform: translateX(calc(70px * 1));
+}
+/* 세번째 li태그에 active가 있으면 indicator의 값을 다음과 같이 설정함 */
+.navigation ul li:nth-child(3).active ~ .indicator {
+  /* X축으로 calc의 값만큼 이동함 */
+  transform: translateX(calc(70px * 2));
+}
+/* 네번째 li태그에 active가 있으면 indicator의 값을 다음과 같이 설정함 */
+.navigation ul li:nth-child(4).active ~ .indicator {
+  /* X축으로 calc의 값만큼 이동함 */
+  transform: translateX(calc(70px * 3));
+}
+/* 다섯번째 li태그에 active가 있으면 indicator의 값을 다음과 같이 설정함 */
+.navigation ul li:nth-child(5).active ~ .indicator {
+  /* X축으로 calc의 값만큼 이동함 */
+  transform: translateX(calc(70px * 4));
+}
